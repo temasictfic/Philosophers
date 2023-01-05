@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:27:56 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/05 05:07:03 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/05 10:58:54 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	is_valid_input(int ac, char **av)
 	int	i;
 	int	num;
 
+	if (ac < 4 + 1 || ac > 5 + 1)
+		return (err_msg(WRONG_ARG_NUM, USAGE));
 	i = 1;
 	while (i < ac)
 	{

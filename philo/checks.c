@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:27:44 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/05 04:27:45 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/05 09:35:28 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,12 @@ void	philo_check_death(t_table *table)
 			{
 				print(table->philos + i, HAS_DIED);
 				table->death = 1;
-				break ;
+				return ;
 			}
 			pthread_mutex_unlock(&table->is_dying);
 		}
-		if (philo_check_min_eat(table) || table->death)
+		if (philo_check_min_eat(table))
 			break ;
 	}
+	table->death = 1;
 }

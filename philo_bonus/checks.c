@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:27:44 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/05 05:36:40 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/05 10:42:36 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,12 @@ void	philo_check_death(t_table *table)
 			{
 				print(table->philos + i, HAS_DIED);
 				table->death = 1;
-				break ;
+				return ;
 			}
 			sem_post(table->is_dying);
 		}
-		if (philo_check_min_eat(table) || table->death)
+		if (philo_check_min_eat(table))
 			break ;
 	}
+	table->death = 1;
 }
