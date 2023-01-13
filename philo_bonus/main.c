@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:27:52 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/05 05:06:56 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/13 23:50:05 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	table_free(t_table *table)
 {
-	size_t	i;
-
 	time_usleep(100);
-	i = -1;
+	sem_close(table->forks);
+	sem_close(table->is_dying);
+	sem_close(table->is_printing);
 	sem_unlink("forks");
 	sem_unlink("dying");
 	sem_unlink("printing");
