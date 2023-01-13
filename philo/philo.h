@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:28:00 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/13 21:56:54 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/13 22:29:01 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 typedef struct s_philo
 {
 	size_t			id;
-	pthread_t		*thread;
+	pthread_t		thread;
 	pthread_mutex_t	*lfork;
 	pthread_mutex_t	*rfork;
 
@@ -61,8 +61,8 @@ typedef struct s_table
 	int				stop;
 
 	size_t			time;
-	pthread_mutex_t	*is_dying;
-	pthread_mutex_t	*is_printing;
+	pthread_mutex_t	is_dying;
+	pthread_mutex_t	is_printing;
 }					t_table;
 
 void				print(t_philo *philo, char *msg);

@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:27:30 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/13 21:15:21 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/13 23:01:29 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	philo_use_forks(t_philo *philo, int (*sem_fn)(), char *msg)
 void	philo_eat(t_philo *philo)
 {
 	philo_use_forks(philo, sem_wait, HAS_TAKEN_FORK);
+	time_usleep(philo->table->time_to_eat);
 	print(philo, IS_EATING);
 	philo->eating = 1;
-	time_usleep(philo->table->time_to_eat);
 	philo->last_eat = time_ms_now();
 	philo->eating = 0;
 	philo->num_eat++;

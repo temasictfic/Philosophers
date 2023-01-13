@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:28:00 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/13 21:57:52 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/13 23:07:21 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 typedef struct s_philo
 {
 	size_t			id;
-	pthread_t		*thread;
+	pthread_t		thread;
 
 	int				eating;
 	size_t			last_eat;

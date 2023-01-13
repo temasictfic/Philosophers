@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:27:48 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/13 21:59:20 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/13 23:07:45 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	threads_start(t_table *table)
 	i = -1;
 	while (++i < table->count)
 	{
-		pthread_create(table->philos[i].thread, NULL, \
+		pthread_create(&table->philos[i].thread, NULL, \
 				philo_routine, table->philos + i);
 	}
 	philo_check_stop(table);
