@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:27:30 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/05 04:37:29 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/13 21:17:06 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	philo_use_forks(t_philo *philo, int (*mutex_fn)(), char *msg)
 void	philo_eat(t_philo *philo)
 {
 	philo_use_forks(philo, pthread_mutex_lock, HAS_TAKEN_FORK);
-	philo->last_eat = time_ms_now();
 	print(philo, IS_EATING);
 	philo->eating = 1;
 	time_usleep(philo->table->time_to_eat);
+	philo->last_eat = time_ms_now();
 	philo->eating = 0;
 	philo->num_eat++;
 	philo_use_forks(philo, pthread_mutex_unlock, NULL);
@@ -52,7 +52,7 @@ void	*philo_routine(void *philo_struct)
 	philo = (t_philo *)philo_struct;
 	if (philo->id % 2 == 0)
 		time_usleep(10);
-	while (!philo->table->death)
+	while (!philo->table->stop)
 	{
 		philo_eat(philo);
 		philo_sleep(philo);

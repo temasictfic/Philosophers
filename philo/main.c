@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:27:52 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/05 09:25:00 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/13 21:44:38 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	table_free(t_table *table)
 	i = -1;
 	while (++i < table->count)
 		pthread_mutex_destroy(table->forks + i);
-	pthread_mutex_destroy(&table->is_printing);
-	pthread_mutex_destroy(&table->is_dying);
+	pthread_mutex_destroy(table->is_printing);
+	pthread_mutex_destroy(table->is_dying);
 	free(table->philos);
 	free(table->forks);
 	free(table);

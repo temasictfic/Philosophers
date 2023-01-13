@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:27:56 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/05 10:58:54 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/13 21:54:29 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ t_table	*parse(int ac, char **av)
 	table->min_to_eat = -1;
 	if (ac - 1 == 5)
 		table->min_to_eat = unsigned_atoi(av[5]);
-	table->death = 0;
+	table->stop = 0;
 	table->philos = malloc(table->count * sizeof(t_philo));
-	table->time = time_now();
+	table->time = time_ms_now();
 	return (table);
 }
