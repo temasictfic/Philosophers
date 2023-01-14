@@ -6,7 +6,7 @@
 /*   By: sciftci <sciftci@student.42kocaeli.com.tr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 04:28:06 by sciftci           #+#    #+#             */
-/*   Updated: 2023/01/05 05:07:13 by sciftci          ###   ########.fr       */
+/*   Updated: 2023/01/13 21:55:02 by sciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ time_t	time_ms_now(void)
 
 time_t	time_ms_from_start(t_table *table)
 {
-	return (time_ms_now() - time_ms(table->time));
+	return (time_ms_now() - table->time);
 }
 
 void	time_usleep(size_t usec)
